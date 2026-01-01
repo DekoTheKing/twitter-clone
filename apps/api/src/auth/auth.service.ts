@@ -20,7 +20,7 @@ export class AuthService {
     const user = await this.validateUser(dto);
     if (!user) return null;
 
-    const payload = { sub: user.id, username: user.username };
+    const payload = { sub: user.id }; // removed username
     return {
       access_token: this.jwtService.sign(payload),
     };
